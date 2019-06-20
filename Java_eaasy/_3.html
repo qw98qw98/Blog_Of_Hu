@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>胡浩然的博客</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="..\css\index.css" type="text/css">
+</head>
+<body>
+<!--模态框 登陆-->
+<div class="modal fade" id="sign" tabindex="-1" role="dialog" aria-labelledby="signLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="signLabel">
+                    登陆
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail-Sign" class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail-Sign" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword-Sign" class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword-Sign"
+                                   placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 记住我
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary" id="myBlog-navbar-sign-submit">登陆</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--            <div class="modal-footer">-->
+            <!--                <button type="button" class="btn btn-default" data-dismiss="modal">关闭-->
+            <!--                </button>-->
+            <!--                <button type="button" class="btn btn-primary">-->
+            <!--                    提交更改-->
+            <!--                </button>-->
+            <!--            </div>-->
+        </div>
+    </div>
+</div>
+<!-- 模态框 -->
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html">
+                <img class="myBlog-navbar-brand-img" alt="Brand" src="../src/Mylogo.png">
+            </a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-myBlog-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-myBlog-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <!--active可以让它保持被选中的状态-->
+                <li><a href="../index.html">首页</a></li>
+                <li class="active"><a href="../Java.html">Java<span class="sr-only">(current)</span></a></li>
+                <li><a href="../Python.html">Python<span class="sr-only">(current)</span></a></li>
+                <!-- 后端下拉条-->
+                <li class="dropdiwb"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false">
+                    后端<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><p class="navbar-text">Python后端</p></li>
+                        <li><a href="#">Flask</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><p class="navbar-text">Java后端</p></li>
+                        <li><a href="#">待定</a></li>
+                    </ul>
+                </li>
+                <!-- 后端下拉条-->
+                <!-- 前端下拉条-->
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false">
+                    前端<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><p class="navbar-text">基础</p></li>
+                        <li><a href="#">HTTP</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><p class="navbar-text">进阶/语言/框架</p></li>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">Bootstrap</a></li>
+                        <li><a href="#">Vue</a></li>
+                    </ul>
+                </li>
+                <!--前端下拉条-->
+                <li><a href="../eaasy.html">随笔漫谈</a></li>
+            </ul>
+            <!-- 按钮结束-->
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="搜索">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" id="signButton" data-toggle="modal" data-target="#sign">登陆</a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><span class="glyphicon glyphicon-user"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">我的信息</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <!--    contaniner start-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+
+
+
+                    <p>每一行代码顺序执行,叫做顺序结构.
+                        在真正的开发过程中不会只用顺序结构.
+                        所以我们要学习流程控制</p>
+                    <h1>流程控制与数组</h1>
+                    <ul>
+                        <li>顺序结构</li>
+                        <li>分支结构
+                            <ul>
+                                <li><strong>if分支</strong>
+                                    如果花括号中只有一行代码,那么这个花括号可以省略.
+                                    如果是多行代码就不能省略了.
+                                    <ul>
+                                        <li>典型的 <em>if else</em>分支。</li>
+                                        <li>只有<em>If</em>的分支结构。</li>
+                                        <li><em>if else的串联使用</em>方式。</li>
+                                    </ul>
+                                </li>
+                                <li><strong>switch分支</strong>
+                                    <ul>
+                                        <li>case只能是byte.short.int.char.[string(After:1.7)]</li>
+                                        <li>break退出</li>
+                                        <li>default缺省执行</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>循环结构
+                            <ul>
+                                <li>while循环:
+                                    先判断表达式是否成立再执行循环体
+                                    <ul>
+                                        <li>让条件不成立跳出:在while后面()放入适当的条件</li>
+                                        <li>主动跳出:break跳出当前循环.</li>
+                                    </ul>
+                                </li>
+                                <li>do while循环
+                                    先执行后判断.</li>
+                            </ul>
+                            <pre><code class="language-java">do{
+    <span class="hljs-comment">//循环体,反复执行的代码;</span>
+}<span class="hljs-keyword">while</span>(statement);
+</code></pre>
+                            <ul>
+                                <li>for循环</li>
+                            </ul>
+                            <pre><code class="language-java"><span class="hljs-keyword">for</span>(初始化部分;条件部分;最后执行部分){
+    <span class="hljs-comment">//循环体</span>
+}
+</code></pre>
+                            <ul>
+                                <li>foreach循环</li>
+                                <li>fori循环</li>
+                            </ul>
+                            <h3>Break</h3>
+                            break语句表示跳出当前循环.
+                            <h3>Continue</h3>
+                            continue语句表示略过本次循环.
+                            <h3>Return</h3>
+                            <ol>
+                                <li>返回数据.</li>
+                                <li>退出当前方法.
+                                    #数组
+                                    数组,一组数据
+                                    Java提供了一种能操作相同类型的多个数据的机制:数组.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    <blockquote>
+                        <p>数组是编程语言中最常见的一种数据结构，可以存储多个相同类型的数据，每个数组元素存
+                            放一个数据,通过数组元素的索引来访问数组元素。数组也是一种类型，他是引用类型。数组
+                            使用中括号[]来定义,在Java中，当定义一个数组类型时，会像JVM申请地址空间，这时JVM
+                            会分配一块连续的内存单元来存储数组中的各个元素.</p>
+                    </blockquote>
+                    <h3>数组的初始化:</h3>
+                    <pre><code class="language-java"><span class="hljs-comment">//向JVM发出了一个申请,申请一块内存空间,内存空间要十个长度,四个字节.</span>
+<span class="hljs-comment">//隐含的操作,是针对于每个引用类型来说的,对象创建完成后,要执行对象的初始化操作.</span>
+<span class="hljs-comment">//对象创建完成后JVM会立刻为创建的对象进行默认的赋值操作(堆内存)</span>
+<span class="hljs-comment">//数值：0；引用:null；布尔:false.</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>{
+    <span class="hljs-keyword">int</span>[] nums=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>];
+    <span class="hljs-keyword">boolean</span>[] bools=<span class="hljs-keyword">new</span> <span class="hljs-keyword">boolean</span>[<span class="hljs-number">10</span>];
+    Test[] tests=<span class="hljs-keyword">new</span> tests[<span class="hljs-number">10</span>];
+    <span class="hljs-keyword">int</span>[] num1=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">63</span>};<span class="hljs-comment">//动态初始化</span>
+    <span class="hljs-keyword">int</span>[] num2=<span class="hljs-keyword">new</span> {<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">6</span>,<span class="hljs-number">1</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>};
+    <span class="hljs-keyword">int</span>[] num3=<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">10</span>];<span class="hljs-comment">//静态初始化</span>
+}
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> num:nums){
+    System.out.println(num);<span class="hljs-comment">//输出10次0;</span>
+}
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">boolean</span> bool:bools){
+    System.out.println(bool);<span class="hljs-comment">//输出10次false;</span>
+}
+<span class="hljs-keyword">for</span>(Test test:tests){
+    System.out.println(test);<span class="hljs-comment">//输出10次null;</span>
+}
+</code></pre>
+                    <h2>算法题</h2>
+                    <p>给定一个由0，1组成的二维数组，求1构成的正方形区域的1的数量的最大值.</p>
+                    <p>例子</p>
+                    <pre><code>{
+  {1,1,1,1},
+  {1,1,1,1},
+  {1,1,0,1},
+  {1,1,1,1},
+};
+结果:
+4
+</code></pre>
+                    <h4>题解</h4>
+                    <h5>解法一</h5>
+                    <ul>
+                        <li>确定一个左上角的坐标,横纵坐标加一确定一个右下角的坐标,遍历这个框里所有元素,如果都是一，我们称这个框是合格的。</li>
+                        <li>如果框是合格的，我们就比较并更新最大面积。</li>
+                        <li>如果这个框合格，继续把横纵坐标都加一，遍历这个框，更新面积，重复这个过程直到框不合格。</li>
+                        <li>确定(0,0)为起始点.若右下角超出范围则直接跳出循环,确定右下角,剪枝去掉不合法情况(如右下角是0),遍历整个框,然后判定合法性,合格则更新并开始下一轮,否则跳出并改变左上角起始点坐标.
+                            <img src="images/SolutionPic/findRightangle.png" alt="解题流程"></li>
+                    </ul>
+                    <h5>解法二</h5>
+                    <ul>
+                        <li>贪心策略</li>
+                        <li>确定最初左上角,寻找右下角的那个坐标,保证这两个坐标是1,不然跳过.</li>
+                        <li>从右下角开始往上和往左遍历直到左上角的坐标之前.如果没有0,那说明这是这一步最优解.记录并尝试刷新最大数目,继续贪心.</li>
+                        <li>继续寻找右下角,重复上步过程.</li>
+                        <li>直到遇到不合法的格子,此时尝试刷新为上次最大数目,切换到下一个左上角,开始下一轮贪心.
+                            <img src="images/SolutionPic/findRightangle1.png" alt="解题流程">
+                            注:红色表示左上角,浅蓝表示右下角,深蓝表示每轮最初始的左上角坐标块,贪心时向上和向左不可以超过深蓝的坐标，因为此时无法构成正方形.</li>
+                    </ul>
+                    <pre><code class="language-java">题解代码:
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">finds</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] area)</span> </span>{
+        <span class="hljs-keyword">int</span> maxsize = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; area.length; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; area[i].length; j++) {
+                <span class="hljs-keyword">int</span> length = <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">int</span> iEnd = i + length;
+                <span class="hljs-keyword">int</span> jEnd = j + length;
+                <span class="hljs-keyword">boolean</span> find = <span class="hljs-keyword">true</span>;
+<span class="hljs-comment">//              System.out.println();</span>
+                <span class="hljs-keyword">if</span> (area[i][j] != <span class="hljs-number">0</span>)
+                    <span class="hljs-keyword">while</span> (find) {
+                        <span class="hljs-keyword">int</span> max = <span class="hljs-number">0</span>;
+                        <span class="hljs-keyword">if</span> (iEnd &lt; area.length &amp;&amp; jEnd &lt; area[i].length) {
+                            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j2 = i; j2 &lt;= iEnd; j2++) {
+                                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = j; k &lt;= jEnd; k++) {
+<span class="hljs-comment">//                              System.out.println(area[j2][k]);</span>
+                                    <span class="hljs-keyword">if</span> (area[j2][k] == <span class="hljs-number">0</span>) {
+                                        find = <span class="hljs-keyword">false</span>;
+<span class="hljs-comment">//                                  System.out.println("No!");</span>
+                                        <span class="hljs-keyword">break</span>;
+                                    } <span class="hljs-keyword">else</span> {
+                                        max++;
+                                    }
+                                }
+                                <span class="hljs-keyword">if</span> (find == <span class="hljs-keyword">false</span>) {
+                                    <span class="hljs-keyword">break</span>;
+                                }
+                            }
+                            iEnd++;
+                            jEnd++;
+                        } <span class="hljs-keyword">else</span> {
+                            <span class="hljs-keyword">break</span>;
+                        }
+                        <span class="hljs-keyword">if</span> (find &amp;&amp; max &gt; maxsize) {
+<span class="hljs-comment">//                      System.out.println("maxsize刷新为:"+max);</span>
+                            maxsize = max;
+                        }}}}
+        <span class="hljs-keyword">return</span> maxsize;
+    }
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">crossFinds</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] area)</span> </span>{
+    <span class="hljs-keyword">int</span> maxsize=<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; area.length; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; area[i].length; j++) {
+            <span class="hljs-keyword">int</span> inext=i+<span class="hljs-number">1</span>;
+            <span class="hljs-keyword">int</span> jnext=j+<span class="hljs-number">1</span>;
+            <span class="hljs-keyword">boolean</span> next=<span class="hljs-keyword">true</span>;
+            <span class="hljs-keyword">int</span> max=<span class="hljs-number">1</span>;
+            <span class="hljs-keyword">while</span>(next){
+                <span class="hljs-keyword">if</span> (inext&lt;area.length &amp;&amp; jnext &lt;area[j].length &amp;&amp; area[inext][jnext]!=<span class="hljs-number">0</span> &amp;&amp;area[i][j]!=<span class="hljs-number">0</span>) {
+                    max++;
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = inext-<span class="hljs-number">1</span>; k &gt;= i; k--) {
+<span class="hljs-comment">//                      System.out.println(area[k][jnext]);</span>
+                        <span class="hljs-keyword">if</span> (area[k][jnext]==<span class="hljs-number">0</span>) {
+<span class="hljs-comment">//                          System.out.println("No!");</span>
+                            next=<span class="hljs-keyword">false</span>;
+                            <span class="hljs-keyword">break</span>;
+                        }
+                        <span class="hljs-keyword">else</span> {
+                            max++;
+                        }
+                    }
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = jnext-<span class="hljs-number">1</span>; k &gt;=j ; k--) {
+<span class="hljs-comment">//                      System.out.println(area[inext][k]);</span>
+                        <span class="hljs-keyword">if</span> (area[inext][k]==<span class="hljs-number">0</span>) {
+<span class="hljs-comment">//                          System.out.println("No!");</span>
+                            next=<span class="hljs-keyword">false</span>;
+                            <span class="hljs-keyword">break</span>;
+                        }
+                        <span class="hljs-keyword">else</span> {
+                            max++;
+                        }
+                    }
+<span class="hljs-comment">//                  System.out.println();</span>
+                    <span class="hljs-keyword">if</span> (next==<span class="hljs-keyword">false</span>) {
+                        <span class="hljs-keyword">break</span>;
+                    } <span class="hljs-keyword">else</span> {
+                        jnext++;
+                        inext++;
+                    }
+                }
+                <span class="hljs-keyword">else</span> {
+                    next=<span class="hljs-keyword">false</span>;
+                    <span class="hljs-keyword">break</span>;
+                }
+                <span class="hljs-keyword">if</span> (next &amp;&amp; max&gt;maxsize) {
+                    maxsize=max;
+<span class="hljs-comment">//                  System.out.println("maxsize更新为:"+max);</span>
+                }
+            }
+        }
+    }
+    <span class="hljs-keyword">return</span> maxsize;
+}
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        <span class="hljs-keyword">int</span>[][] area = {
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> },
+                { <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> },
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> },
+                { <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> },
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> },
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span> },
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> },
+                };
+        <span class="hljs-keyword">int</span>[][] area1 = {
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> ,<span class="hljs-number">1</span>},
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> ,<span class="hljs-number">1</span>},
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> ,<span class="hljs-number">1</span>},
+                { <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> ,<span class="hljs-number">1</span>},
+                };
+        System.out.println(finds(area));
+        System.out.println(crossFinds(area));
+    }
+}
+</code></pre>
+                    <hr>
+                    <h2>数组的工具类:java.util.Arrays</h2>
+                    <p>int binarySearch:二分查找
+                        二分查找有很多方法重载。</p>
+                    <h4>Java为什么要方法重载？</h4>
+                    <ul>
+                        <li>
+                            <ol>
+                                <li>标识符，标识符要有含义。方法名是用于对外说明方法用处的标识符。如果功能     相同，方法名必须一致。</li>
+                                <li>通过形参列表来区分。
+                                    <br></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <ol>
+                                <li>可以避免重复定义相同含义的方法名。</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    <h4>sort方法里的Comparator&lt;? super T c&gt;是什么?</h4>
+                    <pre><code class="language-java">Student[] studs=<span class="hljs-keyword">new</span> Student[<span class="hljs-number">5</span>];
+String names={<span class="hljs-string">"A"</span>,<span class="hljs-string">"B"</span>,<span class="hljs-string">"C"</span>,<span class="hljs-string">"D"</span>,<span class="hljs-string">"E"</span>};
+<span class="hljs-keyword">int</span>[] sorcs={<span class="hljs-number">66</span>,<span class="hljs-number">33</span>,<span class="hljs-number">19</span>,<span class="hljs-number">55</span>,<span class="hljs-number">44</span>};
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;studs.length;i++){
+  studs[i]=<span class="hljs-keyword">new</span> Student(names[i],sorces[i]);
+}
+Arrays.sort();
+</code></pre>
+                    <p>可以传入一个实现了Comparable的类进去，可以是类，内部类，或者Lambda函数。
+                        这样就可以给Sort指定一个排序的标准,相当于Python中sort里的key参数.</p>
+                    <hr>
+                    <p>copyOf
+                        返回一个数组的复制。
+                        copyOfRange
+                        返回一个数组的范围复制。
+                        equals
+                        比较两个数组是否相等.要求每个元素的顺序也相等.</p>
+
+
+
+                </div>
+            </div>
+            <!--  友情链接 -->
+            <div class="col-lg-3 col-lg-offset-1 myBlog-friendShip-content">
+                <h3 class="page-header">友情链接</h3>
+                <mark>
+                    <div>
+                        <a href="http://www.ujn.edu.cn/">
+                            <img class="img-responsive img-circle center-block myBlog-friendShip-img"
+                                 src="../src/ujnlogo.jpg" alt="济南大学"></a>
+                        <a href="http://www.ujn.edu.cn/"><p class="text-center ">济南大学</p></a>
+                    </div>
+                </mark>
+            </div>
+            <!--  友情链接 End -->
+            <!--    关于 Start-->
+            <div col-lg-3>
+                <h1>&nbsp;</h1>
+            </div>
+            <div class="col-lg-3 col-lg-offset-1 myBlog-aboutMe-content">
+                <h3 class="page-header">关于</h3>
+                <img class="img-responsive img-thumbnail center-block img-circle myBlog-aboutMe-myImg"
+                     src="../src/My.jpg"
+                     alt="济南大学">
+                <h3 class="text-center">胡浩然</h3>
+                <ul class="myBlog-aboutMe-ul">
+                    <li>文章:3,留言:0</li>
+                    <li><a href="#">微博, </a><a href="https://space.bilibili.com/201863">Bilibili</a></li>
+                    <li><a href="http://www.github.com/qw98qw98">Github</a></li>
+                </ul>
+                <!--    关于 End-->
+            </div>
+        </div>
+        <!-- contaniner end-->
+    </div>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <!-- 加载我自己写的js -->
+    <script src="../js/myJs.js"></script>
+</body>
+</html>
